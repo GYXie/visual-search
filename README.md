@@ -71,6 +71,6 @@ optional arguments:
 
 项目地址: [https://github.com/GYXie/visual-search](https://github.com/GYXie/visual-search)
 
-博客: [Luyue's Blog](炒一锅基于深度学习的图像检索工具)
+博客: [炒一锅基于深度学习的图像检索工具](http://gyxie.github.io/2017/02/26/%E7%82%92%E4%B8%80%E9%94%85%E5%9F%BA%E4%BA%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%9B%BE%E5%83%8F%E6%A3%80%E7%B4%A2%E5%B7%A5%E5%85%B7/)
 
 由于时间问题,很多细节没有写,以后会补上.如果有问题,可以在博客下留言.

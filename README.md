@@ -1,3 +1,4 @@
+[中文](https://github.com/GYXie/visual-search/blob/master/README.CN.md)
 # A toy project for visual search, based on deep learning
 This article describes how to quickly build an image retrieval tool based on deep learning.
 ## Data

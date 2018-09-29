@@ -8,7 +8,7 @@ This article describes how to quickly build an image retrieval tool based on dee
 [Download model weights(bvlc_alexnet.npy)](http://www.cs.toronto.edu/~guerzhoy/tf_alexnet/bvlc_alexnet.npy)
 
 ## Tools
-- Install Python and related lib(TensorFlow etc.), It is recommended to install [Anaconda](https://www.continuum.io/downloads).
+- Install Python and related lib(TensorFlow etc.). [Anaconda](https://www.continuum.io/downloads) is recommended.
 
 ## Preporcessing
 1. Resize

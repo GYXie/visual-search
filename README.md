@@ -1,16 +1,17 @@
-# 炒一锅基于深度学习的图像检索工具
-本文介绍如何快速搭建一个基于深度学习的图像检索工具
-## 原料
-- 数据集: [Caltech256](http://www.vision.caltech.edu/Image_Datasets/Caltech256/) 包含从 Google 图像搜索和PicSearch.com上获得的 30, 607张物体的图像.这些图像通过人工判别被分配在257个类别中. 在这个实验里我们把Caltech256作为我们要检索的图片库. [下载](http://www.vision.caltech.edu/Image_Datasets/Caltech256/256_ObjectCategories.tar)
-- 代码: 多伦多大学的老师 Michael Guerzhoy 在[个人网站](http://www.cs.toronto.edu/~guerzhoy/tf_alexnet/)上提供了 AlexNet 的 TensorFlow 实现及权重(weights). 搭建一台能够训练深度学习模型的机器不容易,更不要说训练一个好的模型要花多少时间了, 而有了这个训练好的模型,大家就可以快速的体验深度学习的魅力.
-[下载权重(bvlc_alexnet.npy)](http://www.cs.toronto.edu/~guerzhoy/tf_alexnet/bvlc_alexnet.npy)
+# A toy case of visual search, based on deep learning
+This article describes how to quickly build an image retrieval tool based on deep learning.
+## Data
+- Dataset: [Caltech256](http://www.vision.caltech.edu/Image_Datasets/Caltech256/) Contains 30, 607 images from Google Image Search and PicSearch.com. These images were assigned to 257 categories by manual discrimination. In this experiment we use Caltech256 as the image library we want to retrieve. [Dowload](http://www.vision.caltech.edu/Image_Datasets/Caltech256/256_ObjectCategories.tar)
+- Code: Michael Guerzhoy, a researcher at the University of Toronto, provides AlexNet's TensorFlow implementation and weights on his personal website(http://www.cs.toronto.edu/~guerzhoy/tf_alexnet/). It's not easy to build a machine that can train a deep learning model, let alone how long it takes to train a good model. With this well-trained model, everyone can quickly experience the charm of deep learning.
 
-## 厨具
-- 安装Python及相关库(TensorFlow等), 建议安装[Anaconda](https://www.continuum.io/downloads).
+[Download model weights(bvlc_alexnet.npy)](http://www.cs.toronto.edu/~guerzhoy/tf_alexnet/bvlc_alexnet.npy)
 
-## 菜谱
-1. 切菜: 修改图像大小
-训练的 AlexNet 模型的输入图片的大小是固定的[227, 227],而 Caltech256 中的图片宽高是不固定的. `image_resize.py`可以将某一目录的下的图片批量resize,并保存到另一个目录下. 在终端中敲下`python ./visual_search/tools/image_resize.py -h`查看使用说明.
+## Tools
+- Install Python and related lib(TensorFlow etc.), It is recommended to install [Anaconda](https://www.continuum.io/downloads).
+
+## Preporcessing
+1. Resize
+The size of the input image of the trained AlexNet model is fixed [227, 227], while the width and height of the picture in Caltech256 are not fixed. `image_resize.py` can batch resize the images under a certain directory and save them to another directory. Tap `python ./visual_search/tools/image_resize.py -h` in the terminal to view the instructions.
 
 ```
 usage: image_resize.py [-h] [--input_data_dir INPUT_DATA_DIR]
@@ -27,8 +28,9 @@ optional arguments:
   --height HEIGHT       Target image height.
 ```
 
-2. 开火煮: 提取图像特征
+2. Extract image features
 用`visual_search/myalexnet_feature.py`提取图片库中每张图片的特征. 这个脚本会输出两个文件:一个图片的特征,一个是所有图像的完整路径.
+Use `visual_search/myalexnet_feature.py` to extract the feature of each image in the library. This script will output two files: the feature of every image, and the full path of all images.
 
 ```
 $ cd visual_search
@@ -48,8 +50,9 @@ optional arguments:
 ```
 
 
-## 上菜
+## Play
 在`visual_search/visual_search.py`脚本里修改图片特征的路径和图像名称的路径可以进行图片检索了. 输入图像可以是本地图片也可以一个图片的链接地址.
+In the `visual_search/visual_search.py` script, you can modify the path of the image feature and the path of the image name for retrieval. The input image can be a local image or a picture url.
 
 ```
 usage: visual_search.py [-h] [--img_file_path IMG_FILE_PATH]
@@ -65,15 +68,13 @@ optional arguments:
 
 ![Search Result Demo](search_result.jpg)
 
-你会发现有好几行图片,其实每一行都是一个检索记录. 输入图像是每一行的第一张图片. 第2到5行的输入图像是分别对原始图像进行加水印,旋转,裁剪,镜像操作得到.
+You will find several lines of images. Each line is a search record. The input image is the first one of each line. The input images of lines 2 to 5 are obtained by watermarking, rotating, cropping, and mirroring the original image.
 
-做这个实验项目其实花了不到一周的业余时间,根据我提供的信息,相信大家可以在很短的时间内做出一套自己的基于深度学习的图像搜索工具.
+In fact, this experimental project took less than a week of spare time. According to the information I provided, I believe you can make your own image search tool based on deep learning in a short period of time.
 
-项目地址: [https://github.com/GYXie/visual-search](https://github.com/GYXie/visual-search)
+Github: [https://github.com/GYXie/visual-search](https://github.com/GYXie/visual-search)
 
-博客: [炒一锅基于深度学习的图像检索工具](http://gyxie.github.io/2017/02/26/%E7%82%92%E4%B8%80%E9%94%85%E5%9F%BA%E4%BA%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%9B%BE%E5%83%8F%E6%A3%80%E7%B4%A2%E5%B7%A5%E5%85%B7/)
-
-由于时间问题,很多细节没有写,以后会补上.如果有问题,可以提Issue.
+中文博客: [炒一锅基于深度学习的图像检索工具](http://gyxie.github.io/2017/02/26/%E7%82%92%E4%B8%80%E9%94%85%E5%9F%BA%E4%BA%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%9B%BE%E5%83%8F%E6%A3%80%E7%B4%A2%E5%B7%A5%E5%85%B7/)
 
 ## Reference
 - Jing Y, Liu D, Kislyuk D, et al. Visual search at pinterest[C]//Proceedings of the 21th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining. ACM, 2015: 1889-1898.

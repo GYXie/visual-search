@@ -1,4 +1,4 @@
-# A toy project of visual search, based on deep learning
+# A toy project for visual search, based on deep learning
 This article describes how to quickly build an image retrieval tool based on deep learning.
 ## Data
 - Dataset: [Caltech256](http://www.vision.caltech.edu/Image_Datasets/Caltech256/) Contains 30, 607 images from Google Image Search and PicSearch.com. These images were assigned to 257 categories by manual discrimination. In this experiment we use Caltech256 as the image library we want to retrieve. [Dowload](http://www.vision.caltech.edu/Image_Datasets/Caltech256/256_ObjectCategories.tar)

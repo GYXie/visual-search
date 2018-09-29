@@ -1,4 +1,4 @@
-# A toy case of visual search, based on deep learning
+# A toy project of visual search, based on deep learning
 This article describes how to quickly build an image retrieval tool based on deep learning.
 ## Data
 - Dataset: [Caltech256](http://www.vision.caltech.edu/Image_Datasets/Caltech256/) Contains 30, 607 images from Google Image Search and PicSearch.com. These images were assigned to 257 categories by manual discrimination. In this experiment we use Caltech256 as the image library we want to retrieve. [Dowload](http://www.vision.caltech.edu/Image_Datasets/Caltech256/256_ObjectCategories.tar)
@@ -29,7 +29,6 @@ optional arguments:
 ```
 
 2. Extract image features
-用`visual_search/myalexnet_feature.py`提取图片库中每张图片的特征. 这个脚本会输出两个文件:一个图片的特征,一个是所有图像的完整路径.
 Use `visual_search/myalexnet_feature.py` to extract the feature of each image in the library. This script will output two files: the feature of every image, and the full path of all images.
 
 ```

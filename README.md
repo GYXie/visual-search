@@ -50,7 +50,6 @@ optional arguments:
 
 
 ## Play
-在`visual_search/visual_search.py`脚本里修改图片特征的路径和图像名称的路径可以进行图片检索了. 输入图像可以是本地图片也可以一个图片的链接地址.
 In the `visual_search/visual_search.py` script, you can modify the path of the image feature and the path of the image name for retrieval. The input image can be a local image or a picture url.
 
 ```

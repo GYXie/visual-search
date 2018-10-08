@@ -2,7 +2,7 @@
 # A toy project for visual search, based on deep learning
 This article describes how to quickly build an image retrieval tool based on deep learning.
 ## Data
-- Dataset: [Caltech256](http://www.vision.caltech.edu/Image_Datasets/Caltech256/) Contains 30, 607 images from Google Image Search and PicSearch.com. These images were assigned to 257 categories by manual discrimination. In this experiment we use Caltech256 as the image library we want to retrieve. [Dowload](http://www.vision.caltech.edu/Image_Datasets/Caltech256/256_ObjectCategories.tar)
+- Dataset: [Caltech256](http://www.vision.caltech.edu/Image_Datasets/Caltech256/) Contains 30, 607 images from Google Image Search and PicSearch.com. These images were assigned to 257 categories by manual discrimination. In this experiment we use Caltech256 as the image library we want to retrieve. [Download](http://www.vision.caltech.edu/Image_Datasets/Caltech256/256_ObjectCategories.tar)
 - Code: Michael Guerzhoy, a researcher at the University of Toronto, provides AlexNet's TensorFlow implementation and weights on his personal website(http://www.cs.toronto.edu/~guerzhoy/tf_alexnet/). It's not easy to build a machine that can train a deep learning model, let alone how long it takes to train a good model. With this well-trained model, everyone can quickly experience the charm of deep learning.
 
 [Download model weights(bvlc_alexnet.npy)](http://www.cs.toronto.edu/~guerzhoy/tf_alexnet/bvlc_alexnet.npy)
@@ -11,7 +11,7 @@ This article describes how to quickly build an image retrieval tool based on dee
 - Install Python and related lib(TensorFlow etc.). [Anaconda](https://www.continuum.io/downloads) is recommended.
 
 ## Preporcessing
-1. Resize
+1. Resize  
 The size of the input image of the trained AlexNet model is fixed [227, 227], while the width and height of the picture in Caltech256 are not fixed. `image_resize.py` can batch resize the images under a certain directory and save them to another directory. Tap `python ./visual_search/tools/image_resize.py -h` in the terminal to view the instructions.
 
 ```
@@ -29,7 +29,7 @@ optional arguments:
   --height HEIGHT       Target image height.
 ```
 
-2. Extract image features
+2. Extract image features  
 Use `visual_search/myalexnet_feature.py` to extract the feature of each image in the library. This script will output two files: the feature of every image, and the full path of all images.
 
 ```
@@ -51,7 +51,7 @@ optional arguments:
 
 
 ## Play
-In the `visual_search/visual_search.py` script, you can modify the path of the image feature and the path of the image name for retrieval. The input image can be a local image or a picture url.
+In the `visual_search/visual_search.py` script, you can modify the path of the image feature and the path of the image name for retrieval. The input can be a local image or a picture url.
 
 ```
 usage: visual_search.py [-h] [--img_file_path IMG_FILE_PATH]
@@ -69,7 +69,7 @@ optional arguments:
 
 You will find several lines of images. Each line is a search record. The input image is the first one of each line. The input images of lines 2 to 5 are obtained by watermarking, rotating, cropping, and mirroring the original image.
 
-In fact, this experimental project took less than a week of spare time. According to the information I provided, I believe you can make your own image search tool based on deep learning in a short period of time.
+In fact, this experimental project took less than a week of my spare time. According to the information I provided, I believe you can make your own image search tool based on deep learning in a short period of time.
 
 Github: [https://github.com/GYXie/visual-search](https://github.com/GYXie/visual-search)
 
